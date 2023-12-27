@@ -38,6 +38,7 @@ public class FlightService  {
 					flight.setFlightId(newflight.getFlightId());
 					flight.setDestination(newflight.getDestination());
 					flight.setOrigin(newflight.getOrigin());
+					flight.setDate(newflight.getDate());
 					return flightRepository.save(flight);
 				})
 				.orElseGet(()->{

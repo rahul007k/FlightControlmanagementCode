@@ -1,6 +1,9 @@
 package com.example.flight.entity;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +28,10 @@ public class Flight {
 	
 	@Column
 	private String destination;
-
+	
+	@Column
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+	private LocalDateTime date;
 	
 	public boolean equals(Object o) {
 
@@ -36,6 +42,7 @@ public class Flight {
 	    Flight flight = (Flight) o;
 	    return Objects.equals(this.id, flight.id) && Objects.equals(this.flightId, flight.flightId)
 	    && Objects.equals(this.origin, flight.origin)
+	    && Objects.equals(this.date, flight.date)
 	     && Objects.equals(this.destination, flight.destination);
 	  }
 	
